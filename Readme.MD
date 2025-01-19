@@ -1,5 +1,4 @@
-Lab 1: Variational Autoencoders and
-Generative Adversarial Networks
+# Lab 1: Variational Autoencoders and Generative Adversarial Networks
 
 ## Configuration de l'environnement
 
