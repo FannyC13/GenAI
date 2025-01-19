@@ -14,6 +14,12 @@ pip install -r requirements.txt
 
 ## Part 1: Implementing a Variational Autoencoder (VAE)
 
+Pour exécuter le modèle de VAE, utilisez la commande suivante :
+
+```bash
+python main.py
+```
+
 
 ### 1. Pourquoi utilisons-nous l'astuce de reparamétrisation dans les VAE ?
 
@@ -42,6 +48,14 @@ Il est donc important de trouver un équilibre pour retenir les informations imp
 ---
 
 ## Part 2: From VAE to GAN
+
+
+Pour exécuter le modèle GAN, utilisez la commande suivante :
+
+```bash
+python gan.py
+```
+
 
 ### 1. Comment le décodeur d’un VAE peut être utilisé comme générateur dans un GAN ?
 
