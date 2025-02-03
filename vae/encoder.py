@@ -14,7 +14,7 @@ class Encoder:
     - input_shape : Dimensions de l'image d'entrée (28, 28, 1).
     - latent_dim : Entier, taille de l'espace latent.
 
-    Ce qu'on va faire ici c'est donc ;
+    Ce qu'on va faire ici c'est donc :
     - Compresser les données d'entrée 
     - Définir une distribution probabilistique (représenter chaque donnée par une distribution gaussienne) par deux paramètres z_mean et z_log_var
     - Echantillonner un vecteur latent z pour représenter la donnée dans l'espace latent. Cependant, tirer directement z rendrait le modèle non différentiable car l'opération d'échantillonnage est intrinsèquement sochastique
