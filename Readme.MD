@@ -4,8 +4,7 @@
 
 ```bash
 python -m venv gen-ai
-source gen-ai/bin/activate  # Pour Linux/macOS
-# .\gen-ai\Scripts\activate  # Pour Windows
+source .\gen-ai\Scripts\activate 
 pip install -r requirements.txt
 ```
 
@@ -134,3 +133,22 @@ Dans un **Transformer-based GAN**, les mécanismes d'attention permettent d'amé
 Contrairement aux **CNN** qui exploitent des convolutions pour extraire les caractéristiques locales, les **Transformers** capturent les **relations globales** entre les pixels grâce à l'attention.
 
 Ce modèle est particulièrement puissant pour générer des images complexes où les dépendances spatiales sont importantes.
+
+
+--- 
+
+## Résultats
+
+### CNN Gan
+
+Les chiffres sont assez nets mais certains sont peu lisibles et mal définis. La qualité des traits reste conforme aux chiffres MNIST. Il manque de diversités
+
+![alt text](Gan_CNN.png)
+
+### Transformers-based GAN
+
+Certains chiffres sont bien formés et d'autres un peu plus tordus voir flous. Il est un peu plus flou et on peut remarqué l'apparition de bruits et certains traits sont mal formés. La structure globale reste cependant lisible et il y a une meilleure diversité. 
+
+![alt text](Gan_Transformers.png)
+
+Ainsi le Gan CNN est efficace et permet de capturer les structures locales mais peut être moins diversifié et produire des chiffres flous. Cela peut être ajuster en ajoutant peut-être davantage de dimensions, mettre un dropout pour éviter le surapprentissage et permettre de la diversité. Le GAN transformer produit des chiffres plus variés et lisibles mais cela reste encore un peu flou. On pourrait peut-être mettre plus de têtes d'attentions et améliorer le discriminateur.

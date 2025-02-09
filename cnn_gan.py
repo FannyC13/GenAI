@@ -54,11 +54,11 @@ def build_discriminator():
     
     model = tf.keras.Sequential([
         
-        # Première couche de convolution : réduit l'image de 28x28 à 14x14
+        # Première couche de convolution qui réduit l'image de 28x28 à 14x14
         layers.Conv2D(64, kernel_size=4, strides=2, padding="same", input_shape=(28, 28, 1)),
         layers.LeakyReLU(alpha=0.2),  # Activation LeakyReLU pour la non linéarité et éviter la suppression des gradients
       
-        # Deuxième couche de convolution : réduit l'image de 14x14 à 7x7
+        # Deuxième couche de convolution qui réduit l'image de 14x14 à 7x7
         layers.Conv2D(128, kernel_size=4, strides=2, padding="same"),
         layers.LeakyReLU(alpha=0.2),
         
@@ -72,7 +72,7 @@ def build_discriminator():
         
         #On doit ensuite convertit la matrice 3D en un vecteur 1D utilisable par une couche Dense
         #Cela permet de relier les informations extraites par les convolutions à la décision finale du modèle.
-        # Couche Dense finale avec activation sigmoid pour classifier (0 = fake, 1 = réel)
+        # Couche Dense finale avec activation sigmoid pour classifier (0 = faux, 1 = réel)
         layers.Dense(1, activation="sigmoid")  
     ])
     return model
