@@ -4,3 +4,4 @@ tensorflow
 streamlit
 plotly
 scikit-learn
+seaborn
