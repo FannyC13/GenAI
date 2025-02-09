@@ -35,7 +35,7 @@ Ces réseaux s'entraînent en compétition (adversarial) :
 
 Un **CNN (Convolutional Neural Network)** est un réseau de neurones conçu pour l'analyse et le processing d'images.
 
-La **convolution** est une opération mathématique utilisée pour extraire des caractéristiques d'une image (bords, textures, motifs). Elle consiste à appliquer un filtre qui VA effectueR des multiplications et des additions sur les valeurs de l'image d'entrée pour produire une version transformée (généralement plus petite).
+La **convolution** est une opération mathématique utilisée pour extraire des caractéristiques d'une image (bords, textures, motifs). Elle consiste à appliquer un filtre qui va effectuer des multiplications et des additions sur les valeurs de l'image d'entrée pour produire une version transformée (généralement plus petite).
 
 L'application de plusieurs filtres permet au CNN d'extraire progressivement des caractéristiques de haut niveau des images.
 
