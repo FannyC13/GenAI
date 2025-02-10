@@ -4,7 +4,7 @@
 
 ```bash
 python -m venv gen-ai
-source .\gen-ai\Scripts\activate 
+.\gen-ai\Scripts\activate 
 pip install -r requirements.txt
 ```
 
