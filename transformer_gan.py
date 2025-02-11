@@ -38,7 +38,7 @@ def transformer_generator(latent_dim=100):
     for _ in range(3):  # Ajouter plusieurs couches de self-attention
         attention_output = layers.MultiHeadAttention(num_heads=4, key_dim=64)(x, x) #Définir 4 têtes d'attention pour explorer en parallèle
         x = layers.LayerNormalization()(x + attention_output)  # Normalisation après l'attention
-        dense_output = layers.Dense(128, activation="relu")(x)   # Ajout d'une couche Dense avec activation relu pour la non-linéarité
+        dense_output = layers.Dense(256, activation="relu")(x)   # Ajout d'une couche Dense avec activation relu pour la non-linéarité
         dense_output = layers.Dropout(0.2)(dense_output) # Dropout pour améliorer la diversité
         x = layers.LayerNormalization()(x + dense_output)  # Normalisation après la couche Dense
     
@@ -50,7 +50,7 @@ def transformer_generator(latent_dim=100):
     
     # Upsampling to 28x28
     x = layers.Conv2DTranspose(64, kernel_size=4, strides=2, padding="same", activation="relu")(x)
-    x = Dropout(0.3)(x)
+    x = layers.Dropout(0.3)(x)
     x = layers.Conv2DTranspose(1, kernel_size=4, strides=1, padding="same", activation="tanh")(x)
 
     
