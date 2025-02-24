@@ -39,7 +39,6 @@ Le but de la self attention est de calculer des "scores d'attention" qui reflèt
 
 Ce mécanisme permet une parallélisation beaucoup plus importante.
 
-### Multi-head attention
 ### Positional encoding
 
 Du fait de la parallisation, le positional encoding devient nécessaire. Le transformer traite chaque donnée comme un point indépendant des autres. 
@@ -105,21 +104,4 @@ Il a pour but de capturer l'ensemble du contexte de la phrase. Après passage da
 
 A travers les couches sa représentation changera à chaque étape, le CLS est mis à jour par le mécanisme d'attention.
 On essaye de faire une régression logistique avec les éléments qui sont des éléments d'images. Le CLS permet d'avoir une indication d'importance à une classe.
-
-### Les Transformers
-
-Les **Transformers** sont une architecture de réseau neuronal qui traite les données en parallèle, améliorant ainsi l'efficacité du traitement.
-
-- Ils sont capables de capturer les relations à longue distance entre les éléments d'une séquence.
-- Ils sont particulièrement efficaces pour des tâches comme la traduction automatique et la génération de texte.
-
-### Transformers appliqués aux GANs
-
-Dans un **Transformer-based GAN**, les mécanismes d'attention permettent d'améliorer la génération d'images en identifiant les **parties cruciales** de l'image pendant la génération.
-Contrairement aux **CNN** qui exploitent des convolutions pour extraire les caractéristiques locales, les **Transformers** capturent les **relations globales** entre les pixels grâce à l'attention.
-
-Ce modèle est particulièrement puissant pour générer des images complexes où les dépendances spatiales sont importantes.
-
-
---- 
-
+-- 
