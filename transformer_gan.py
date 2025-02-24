@@ -54,7 +54,6 @@ def transformer_generator(latent_dim=100):
     x = layers.Conv2DTranspose(32, kernel_size=4, strides=2, padding="same", activation="relu")(x)
     x = layers.Conv2DTranspose(1, kernel_size=4, strides=1, padding="same", activation="tanh")(x)
 
-
     
     '''
     Après le MultiHeadAttention, on obtient une représentation enrichie des données d'entrée, où les relations complexes entre les différentes parties de l'image ont été capturées.
