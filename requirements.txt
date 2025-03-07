@@ -1,6 +1,11 @@
-numpy
-matplotlib
-tensorflow
-streamlit
-plotly
-scikit-learn
+tensorflow==2.14.0 
+transformers==4.36.2
+datasets==2.16.1
+scikit-learn==1.3.2
+numpy==1.24.4
+pandas==2.1.4
+matplotlib==3.7.4
+seaborn==0.12.2
+torch==2.1.2
+torchvision==0.16.2
+tensorflow-addons==0.21.0
