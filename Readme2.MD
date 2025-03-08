@@ -24,7 +24,7 @@ Si on travaille avec des fonctions plus complexes que sin on peut avoir des fonc
 ### Discussion:
 ####  What happens if we change the noise schedule?
 
-En modifiant le noise schedule on change la manière dont le bruit est ajouté aux images à chaque étape. On peut donc avoir un processus plus brutal ou progressif ce qui peut impacter la capacité du modèle à apprendre à inverser. 
+Un noise schedule est une séquence qui va définir comment le bruit va être ajouté progressivement à une image. En modifiant le noise schedule on change la manière dont le bruit est ajouté aux images à chaque étape. On peut donc avoir un processus plus brutal ou progressif ce qui peut impacter la capacité du modèle à apprendre à inverser. 
 
 #### How do diffusion models compare to GANs?
 
@@ -34,9 +34,14 @@ Les modèles de diffusions et les Gans génèrent tous les deux des images mais 
 
 ### How does function inversion relate to diffusion models?
 
+Le but de l'inversion d'une fonction est de retrouver l'entrée initiale grâce à la sortie. Dans un modèle de diffusion, le processus de débruitage itératif permet de retrouver le bruit ajouté pour reconstituer l'image original, comme pour une inversion de fonction. 
 
 ### How does iterative noise removal help generate realistic images?
 
+Le retrait itératif de bruit permet de corriger progressivement l'image. Ainsi, à chaque étape le modèle va apprendre à enlever petit à petit le bruit ce qui permet d'avoir accès aux détails et de restaurer l'image progressivement. Ce processus permet d'avoir des images de plus en plus réalistes.
+
 ###  Potential applications of diffusion models (e.g., text-to-image generation like Stable Diffusion).
+
+Les modèles de diffusions peuvent être utilisé pour de la génération d'image à partir de texte comme Dall-E, la restauration d'image ou encore la création d'image, de vidéo ...
 
 

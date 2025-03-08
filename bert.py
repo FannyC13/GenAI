@@ -6,7 +6,6 @@ import seaborn as sns
 from sklearn.metrics import accuracy_score, classification_report
 from transformers import BertTokenizer, TFBertForSequenceClassification
 
-
 # Load le dataset IMDb
 (x_train, y_train), (x_test, y_test) = tf.keras.datasets.imdb.load_data(num_words=10000)
 
@@ -38,7 +37,6 @@ train_df = pd.DataFrame({'text': train_texts, 'label': y_train})
 test_df  = pd.DataFrame({'text': test_texts, 'label': y_test})
 
 # On transforme les phrases en une séquence de tokens pour BERT.
-
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 
 def preprocess_data(texts, labels, max_length=256):
@@ -50,14 +48,7 @@ def preprocess_data(texts, labels, max_length=256):
     - return_attention_mask=True : Génère un masque indiquant quels mots sont importants.
     - return_tensors=tf : Convertit le résultat en format TensorFlow.
     """
-    encoded = tokenizer.batch_encode_plus(texts,
-        add_special_tokens=True,
-        max_length=max_length,
-        padding='max_length',
-        truncation=True,
-        return_attention_mask=True,
-        return_tensors='tf'
-    )
+    encoded = tokenizer.batch_encode_plus(texts,add_special_tokens=True, max_length=max_length,padding='max_length',truncation=True,return_attention_mask=True,return_tensors='tf')
     return {
         'input_ids': encoded['input_ids'],  
         'attention_mask': encoded['attention_mask'],  
@@ -74,21 +65,12 @@ test_dataset  = tf.data.Dataset.from_tensor_slices(test_encodings).batch(32)
 
 # Modèle Bert based Uncased
 model = TFBertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
-
 optimizer = tf.keras.optimizers.Adam(learning_rate=2e-5)
 loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 model.compile(optimizer=optimizer, loss=loss_fn, metrics=['accuracy'])
 
 # Entraînement du modèle
-history = model.fit(
-    train_dataset, 
-    epochs=3, 
-    validation_data=test_dataset
-)
-
-# -----------------------------------------------
-# 4. ÉVALUATION DU MODÈLE
-# -----------------------------------------------
+history = model.fit(train_dataset, epochs=3, validation_data=test_dataset)
 
 # Prédictions sur le dataset de test
 predictions = model.predict(test_dataset)
@@ -98,32 +80,20 @@ pred_labels = np.argmax(predictions.logits, axis=1)
 print("Accuracy:", accuracy_score(test_encodings["labels"].numpy(), pred_labels))
 print(classification_report(test_encodings["labels"].numpy(), pred_labels))
 
-# -----------------------------------------------
-# 5. UTILISATION DU MODÈLE POUR DE NOUVELLES PRÉDICTIONS
-# -----------------------------------------------
-
 def predict_sentiment(text):
     """
     Fonction pour prédire le sentiment d'une critique de film.
     Utilise le modèle BERT fine-tuné.
     """
-    encoding = tokenizer.encode_plus(
-        text,
-        add_special_tokens=True,
-        max_length=256,
-        padding='max_length',
-        truncation=True,
-        return_attention_mask=True,
-        return_tensors='tf'
-    )
+    encoding = tokenizer.encode_plus(text,add_special_tokens=True,max_length=256,padding='max_length',truncation=True,return_attention_mask=True,return_tensors='tf')
     logits = model(encoding)[0]
     pred = np.argmax(logits, axis=1)[0]
     return "Positif" if pred == 1 else "Négatif"
 
 # Test de la fonction
-print(predict_sentiment("I love this movie!"))  
-print(predict_sentiment("This movie was terrible."))  
+print(predict_sentiment("I love this GenAI course!"))  
+print(predict_sentiment("This Lab was terribly complicated."))  
 
 # Sauvegarde du modèle et du tokenizer
-model.save_pretrained("final_saved_model")
-tokenizer.save_pretrained("final_saved_model")
+model.save_pretrained("bert_model")
+tokenizer.save_pretrained("bert_tokenizer")
