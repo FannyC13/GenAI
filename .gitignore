@@ -1,3 +1,5 @@
 gen-ai/
 vae/_pycache_/
 final_saved_model/
+bert_model/
+bert_tokenizer/

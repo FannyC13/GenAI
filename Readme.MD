@@ -134,6 +134,13 @@ Il a pour but de capturer l'ensemble du contexte de la phrase. Après passage da
 A travers les couches sa représentation changera à chaque étape, le CLS est mis à jour par le mécanisme d'attention.
 On essaye de faire une régression logistique avec les éléments qui sont des éléments d'images. Le CLS permet d'avoir une indication d'importance à une classe.
 
+## Bert Résultat 
+
+![alt text](Bert_result.png)
+
+## Cifar 
+
+
 ## Part 4: Reflection and Discussion (30 minutes)
 Discussion Points:
 
