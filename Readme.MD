@@ -140,6 +140,11 @@ On essaye de faire une régression logistique avec les éléments qui sont des �
 
 ## Cifar 
 
+![alt text](Cifar.png)
+
+Visualisation des prédictions : 
+
+![alt text](cifar_test.png)
 
 ## Part 4: Reflection and Discussion (30 minutes)
 Discussion Points:
